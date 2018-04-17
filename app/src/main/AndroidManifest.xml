@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.udacity.moaazfathy.pharaohs.pharaohs">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/icon"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/icon"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".UI.SplashActivity"
+            android:noHistory="true"
+            android:theme="@style/NoActionBarTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".UI.HomeActivity"
+            android:theme="@style/NoActionBarTheme" />
+        <activity
+            android:name=".UI.MapToAcientActivity"
+            android:theme="@style/NoActionBarTheme" />
+        <activity
+            android:name=".UI.GodsActivity"
+            android:theme="@style/NoActionBarTheme" />
+        <activity
+            android:name=".UI.PyramidsActivity"
+            android:theme="@style/NoActionBarTheme" />
+        <activity
+            android:name=".UI.PharaohsActivity"
+            android:theme="@style/NoActionBarTheme" />
+
+        <receiver android:name=".PharaohsWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/pharaohs_widget_info" />
+        </receiver>
+    </application>
+
+</manifest>

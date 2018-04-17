@@ -1,0 +1,93 @@
+<resources>
+    <string name="app_name">Pharaohs</string>
+    <string name="home_toolbar_title">Pharaohs Category</string>
+    <string name="pyramids_toolbar_title">Great Pyramids</string>
+    <string name="pharaohs_toolbar_title">Popular Pharaohs</string>
+    <string name="gods_toolbar_title">Old Egyptian Gods</string>
+    <string name="card_pharaoh">Popular \nPharaohs</string>
+    <string name="card_maps">Map Of \nAncient Egypt </string>
+    <string name="maps_title">Map Of Ancient Egypt </string>
+    <string name="card_pyramids">Great \nPyramids</string>
+    <string name="card_gods">Old \nEgyptian Gods</string>
+    <string name="location">Location</string>
+    <string name="location_des">Northern Africa.\nEgypt borders the Mediterranean Sea in the north \nPalestine in the east , Sudan in the south and Libya in the west.</string>
+    <string name="area">Area</string>
+    <string name="area_des">Total: 1,001,450 sq km (slightly more than three times the size of New Mexico) \nLand: 995,450 sq km \nWater: 6,000 sq km</string>
+    <string name="climate">Climate</string>
+    <string name="climate_des">Desert: hot, \nDry summers with moderate winters</string>
+
+    <string name="map_snakebar_text">Click on Map icon to go</string>
+
+    ///////// pharaohs
+    <string name="tutankhamun_des">(aka King Tut) restored the capital to Thebes after the death of Akhenaten and restored the worship of the old gods.
+        \nLater pharaoh\'s erased his name from some king lists so scholars found his tomb\'s goods intact in the 1920s.</string>
+    <string name="cleopatra_des">Immortalized in books, movies and a Shakespearian play, Cleopatra VII Thea Philopator became Egypt\’s most popular ancient Egyptian ruler. Known simply as Cleopatra
+        \nshe would lead her country despite its declining power.</string>
+    <string name="ramses_second_des">Ramses II (aka Ramesses II, Rameses II or Sese) was the third pharaoh of the 19th dynasty.
+        \nHe was one of the most powerful and influential pharaohs of ancient Egypt</string>
+    <string name="ramses_third_des">Historians consider King Ramses III the last of the great pharaohs to rule Egypt with significant power.
+        \nAs the second pharaoh of the 20th Dynasty, Ramses III held power during the decline of Egypt.</string>
+    <string name="hatshepsut_des">The accomplishments of Queen Hatshepsut are many, but perhaps the greatest of all was her ability to rule Egypt during the 18th Dynasty.
+        \nUntil this time it had been extremely rare for a woman to sit on the throne of Egypt and unheard of for a woman to boldly assume the role of pharaoh.</string>
+    <string name="akhenaten_des">Akhenaten (aka Akhenaton) is one of Ancient Egypt\'s most controversial and notable pharaohs.
+        \nHe ruled for 17 years during the 18th Dynasty and came to be known by some fascinating names, including Great Heretic, The Heretic Pharaoh, and Rebel Pharaoh. Originally, he was known as Amenhotep IV, but then changed his name to reflect his link with the new supreme deity, whom he worshiped.  </string>
+    <string name="khufu_des">Khufu (aka Cheops) ruled during the Old Kingdom and was the second pharaoh of the fourth dynasty of kings.
+        \nHe succeeded his father, Pharaoh Snefru, and ruled from 2589 BC to 2566 BC, although this is a general estimation as far too little is known about this famous pharaoh.</string>
+    <string name="djoser_des">Djoser ruled during the Old Kingdom and built the first true stone pyramid, the Step Pyramid.</string>
+    <string name="thutmose_des">Thutmose was the 6th pharaoh of the 18th dynasty.\nHe ruled Egypt for 45 years and created the largest empire ever in Egypt.</string>
+    <string name="amenhotep_des">Amenhotep was the son of Thutmose IV and was the 9th pharaoh of the 18th dynasty.He ruled during the peak of ancient Egypt\'s power.</string>
+
+    <string name="tutankhamun">Tutankhamun</string>
+    <string name="cleopatra">Cleopatra</string>
+    <string name="ramses_sec">Ramses ||</string>
+    <string name="ramses_thr">Ramses |||</string>
+    <string name="hatshepsut">Hatshepsut</string>
+    <string name="akhenaten">Akhenaten</string>
+    <string name="khufu">Khufu</string>
+    <string name="djoser">Djoser</string>
+    <string name="amenhotep">Amenhotep</string>
+    <string name="thutmose">Thutmose</string>
+
+
+    ///////// gods
+    <string name="amun_des">Amun had many names and served several roles in Egyptian mythology and Egyptians often worshiped Amun\’s family along with him. Depictions of Amun are found throughout Egypt as are his legends.</string>
+    <string name="ra_des">Ra is the ancient Egyptian sun god. He is the father of the gods and is usually depicted with the body of a human and the head of a falcon</string>
+    <string name="hathor_des">She was the goddess of dance, foreign lands and music as well as being the patron goddess of miners. Hathor was the fertility goddess who helped women in childbirth.\nThe Egyptians associated Hathor with the Milky Way which they called the Nile of the sky.</string>
+    <string name="horus_des">Horus was a sun god and the king of the gods.\nHis emblem was the falcon and he was one of the five Osirian gods along with Osiris, Isis, Set and Nephthys</string>
+    <string name="isis_des">Isis One of the most famous legends involves Isis putting the body of her husband back together after he was killed by Set, impregnating herself with his body and giving birth to their son Horus.</string>
+    <string name="maet_des">Maet was the representation of moral and physical law. Some scholars consider her the most important goddess of Ancient Egypt. Maet\’s worship spread throughout Egypt because she helped judge the dead.</string>
+    <string name="osiris_des">Osiris was the god of the dead and resurrection. He was the ruler of the Tuat and people would appeal to him to care for their departed ancestors. Osiris was the king of the gods until his brother killed him.</string>
+    <string name="seth_des">Seth was the god of evil and darkness.\nHe was the adversary of Horus and everything that was good. Except for the red crown, people regarded the color red as an evil color because of its connection to Set. He was associated with war and strength, storms and deserts.</string>
+
+    <string name="amun">Amun</string>
+    <string name="ra">Ra</string>
+    <string name="hathor">Hathor</string>
+    <string name="horus">Horus</string>
+    <string name="isis">Isis</string>
+    <string name="maet">Maet</string>
+    <string name="osiris">Osiris</string>
+    <string name="seth">Seth</string>
+
+
+    ///////// pyramids
+    <string name="khufu_pry">Khufu built the Great Pyramid around 2506 BC. It is 481 feet high and 756 feet long at the base.\nThe engineers oriented the pyramid to the cardinal points, and they were accurate to within a fraction of a degree. There are three burial chambers in or under the Great Pyramid.</string>
+    <string name="khafra_pry">The pyramid built by Khufu\'s son, Khafre, is a little smaller than the Great Pyramid.\nThey appear to be the same size because Khafre\'s pyramid is at a higher elevation. Scholars have excavated most of his funerary complex, which has a unique feature, the Great Sphinx.
+The Egyptians carved the Great Sphinx from a sandstone outcropping, likely as a guardian to protect the Giza complexes.</string>
+    <string name="menkaure_pry">Menkaure\'s Pyramid is only one-tenth the size of the Great Pyramid.\nInstead of building a huge pyramid, Menkaure built one of more valuable stone. The base layer and the bottom sixteen layer casings were granite. Workers finished the pyramid with limestone after the pharaoh\'s death.</string>
+
+    <string name="kofo">Khufu</string>
+    <string name="khafra">Khafra</string>
+    <string name="menkaure">Menkaure</string>
+
+    /////// transition
+    <string name="pyramids">pyramids</string>
+    <string name="map">map</string>
+    <string name="phara">Pharaohs</string>
+    <string name="god">god</string>
+
+    <string name="city_map_description">map icon when you clicked it opens Google Maps</string>
+
+    <string name="connection_error">Connection Error</string>
+    <string name="widget_text">Get the Pharaohs Antiquities</string>
+    <string name="add_widget">Add widget</string>
+</resources>
