@@ -1,40 +1,32 @@
 package com.udacity.moaazfathy.pharaohs.pharaohs.UI;
 
-import android.app.Dialog;
-import android.content.Context;
-import android.os.Parcelable;
+import android.os.AsyncTask;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.Volley;
+import com.crashlytics.android.Crashlytics;
 import com.udacity.moaazfathy.pharaohs.pharaohs.Adapters.CitiesAdapter;
 import com.udacity.moaazfathy.pharaohs.pharaohs.Models.City;
 import com.udacity.moaazfathy.pharaohs.pharaohs.R;
 
 import org.json.JSONArray;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
-import java.util.List;
+
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class MapToAcientActivity extends AppCompatActivity {
 
@@ -46,66 +38,51 @@ public class MapToAcientActivity extends AppCompatActivity {
     @BindView(R.id.cities_list)
     ListView mCitiesLV;
 
-    RequestQueue requestQueue;
     ArrayList<City> cities;
     CitiesAdapter adapter;
-
+    private final static String ST_URL = "http://khassmy.com/moaz";
     int x, y;
+    private FirebaseAnalytics mFirebaseAnalytics;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map_to_acient);
-
         ButterKnife.bind(this);
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+
         cities = new ArrayList<>();
-        requestQueue = Volley.newRequestQueue(this);
         loading.setVisibility(View.VISIBLE);
         if (savedInstanceState != null) {
             mCitiesLV.setSelectionFromTop(x, y);
         }
-        getCities();
-
+        new CitiesAsyncTask().execute();
         Snackbar snackbar = Snackbar.make(coordinatorLayout, getString(R.string.map_snakebar_text), Snackbar.LENGTH_LONG);
         snackbar.show();
+
+
     }
 
-    private void getCities() {
+    private void getCities(JSONArray response) {
+        try {
 
-        JsonArrayRequest objectRequest = new JsonArrayRequest("http://khassmy.com/moaz", new Response.Listener<JSONArray>() {
-            @Override
-            public void onResponse(JSONArray response) {
-
-                cities = new ArrayList<>();
-                loading.setVisibility(View.GONE);
-
-                try {
-
-                    for (int i = 0; i < response.length(); i++) {
-                        City city = new City();
-                        city.setCity(response.getJSONObject(i).getString("city"));
-                        city.setLatitude(response.getJSONObject(i).getString("latitude"));
-                        city.setLongitude(response.getJSONObject(i).getString("longitude"));
-                        cities.add(city);
-                    }
-                    adapter = new CitiesAdapter(cities, MapToAcientActivity.this);
-                    mCitiesLV.setAdapter(adapter);
-                    adapter.notifyDataSetChanged();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-
-
+            for (int i = 0; i < response.length(); i++) {
+                City city = new City();
+                city.setCity(response.getJSONObject(i).getString("city"));
+                city.setLatitude(response.getJSONObject(i).getString("latitude"));
+                city.setLongitude(response.getJSONObject(i).getString("longitude"));
+                cities.add(city);
             }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(MapToAcientActivity.this, getString(R.string.connection_error), Toast.LENGTH_SHORT).show();
-                loading.setVisibility(View.GONE);
-                error.printStackTrace();
-            }
-        });
-        requestQueue.add(objectRequest);
+            adapter = new CitiesAdapter(cities, MapToAcientActivity.this);
+            mCitiesLV.setAdapter(adapter);
+            adapter.notifyDataSetChanged();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Bundle bundle = new Bundle();
+        bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "1");
+        bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, cities.get(0).getCity());
+        mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
     }
 
     @Override
@@ -124,5 +101,51 @@ public class MapToAcientActivity extends AppCompatActivity {
         super.onRestoreInstanceState(savedInstanceState);
         x = savedInstanceState.getInt("index");
         y = savedInstanceState.getInt("top");
+    }
+
+
+    public class CitiesAsyncTask extends AsyncTask<Void, Void, JSONArray> {
+
+        @Override
+        protected void onPostExecute(JSONArray jsonArray) {
+//            super.onPostExecute(jsonArray);
+            try {
+
+                Log.e("asynctask cities", jsonArray.toString());
+
+                getCities(jsonArray);
+            } catch (Exception e) {
+                e.printStackTrace();
+                Crashlytics.logException(e);
+
+            }
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected JSONArray doInBackground(Void... voids) {
+            JSONArray array = null;
+            try {
+                URL url = new URL(ST_URL);
+                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                connection.setRequestMethod("GET");
+                connection.connect();
+
+                BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+                String value = reader.readLine();
+                array = new JSONArray(value);
+
+                Log.e("asynctask cities", value);
+            } catch (Exception e) {
+                e.printStackTrace();
+                Crashlytics.logException(e);
+
+            }
+            return array;
+        }
     }
 }

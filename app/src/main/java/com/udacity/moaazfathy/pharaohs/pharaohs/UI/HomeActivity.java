@@ -2,26 +2,20 @@ package com.udacity.moaazfathy.pharaohs.pharaohs.UI;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
-import android.graphics.Point;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.view.Display;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.ScrollView;
 
+import com.crashlytics.android.Crashlytics;
+import com.google.firebase.database.FirebaseDatabase;
 import com.udacity.moaazfathy.pharaohs.pharaohs.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.fabric.sdk.android.Fabric;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -57,6 +51,8 @@ public class HomeActivity extends AppCompatActivity {
             position = savedInstanceState.getInt(CURRENT_SCROLLING_STATE);
             nestedScroll.scrollTo(0, position);
         }
+
+        Fabric.with(this, new Crashlytics());
 
     }
 

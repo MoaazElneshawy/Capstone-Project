@@ -15,6 +15,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.udacity.moaazfathy.pharaohs.pharaohs.Adapters.PharaohsAdapter;
 import com.udacity.moaazfathy.pharaohs.pharaohs.Models.Model;
 import com.udacity.moaazfathy.pharaohs.pharaohs.R;
+import com.udacity.moaazfathy.pharaohs.pharaohs.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,7 +56,8 @@ public class PharaohsActivity extends AppCompatActivity {
             restoreLayoutManagerPosition();
         }
         // firebase
-        firebaseDatabase = FirebaseDatabase.getInstance();
+        firebaseDatabase = Utils.getDatabase();
+        
         databaseReference = firebaseDatabase.getReference().child("pharaohs");
         childEventListener = new ChildEventListener() {
             @Override
