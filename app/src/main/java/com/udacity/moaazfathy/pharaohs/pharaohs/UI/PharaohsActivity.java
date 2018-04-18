@@ -57,7 +57,7 @@ public class PharaohsActivity extends AppCompatActivity {
         }
         // firebase
         firebaseDatabase = Utils.getDatabase();
-        
+
         databaseReference = firebaseDatabase.getReference().child("pharaohs");
         childEventListener = new ChildEventListener() {
             @Override
